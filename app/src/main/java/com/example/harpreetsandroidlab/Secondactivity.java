@@ -18,30 +18,40 @@ class SecondActivity extends AppCompatActivity {
 
     private ImageView profileImage;
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        EditText phonenumber = findViewById(R.id.editTextPhone);
-        Editable phonenumberText = phonenumber.getText();
-        TextView Topofthescreen = findViewById(R.id.textView);
+
 
         Intent fromPrevious = getIntent();
-        String text = fromPrevious.getStringExtra("EmailAddress");
-        Topofthescreen.setText("Welcome Back:" + text);
+        String text = fromPrevious.getStringExtra("Info");
 
-        Button btn1 = findViewById(R.id.button);
-        btn1.setOnClickListener(clk ->{
-            Intent next = new Intent(Intent.ACTION_DIAL);
-            next.setData(Uri.parse("tel:" + phonenumberText));
-            startActivity(next);
-        });
-        Button btn2 = findViewById(R.id.button2);
-        btn2.setOnClickListener(clk -> {
-            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult( cameraIntent, 3456);
-        });
+        float fromMain =fromPrevious.getFloatExtra("MyFloat", 0.0f);
+        float test =fromPrevious.getFloatExtra("ABCD", 1.0F);
+        boolean t =fromPrevious.getBooleanExtra("IsTrue", false);
+
+        Button call= findViewById(R.id.button);
+        call.setOnClickListener(view ->{
+            
+             finish();
+                }
+                );
+
+
+        TextView top = findViewById(R.id.textView);
+        top.setText("Myfloat="+ fromMain +"test="+test);
+
+        EditText line = findViewById(R.id.editTextPhone);
+        line.setText(text);
+
+
+
 
     }
 

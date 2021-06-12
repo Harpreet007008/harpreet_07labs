@@ -6,7 +6,8 @@ import androidx.annotation.Nullable;
         import android.content.Intent;
         import android.graphics.Bitmap;
         import android.os.Bundle;
-        import android.util.Log;
+import android.provider.MediaStore;
+import android.util.Log;
         import android.widget.Button;
         import android.widget.EditText;
         import android.widget.ImageView;
@@ -19,21 +20,36 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.v("MainActivity", "In onCreate() - Loading Widgets" );
 
         Button loginBtn = findViewById(R.id.nextPageButton);
-        EditText emailEditText =findViewById(R.id.inputEditText);
+        Log.v(TAG , "In onCreate() - Loading Widgets" );
+
 
         loginBtn.setOnClickListener( clk -> {
+            EditText et = findViewById(R.id.inputEditText);
 
             //This Intent say that you want to transition from MainActivity to SecondActivity
 
             Intent nextPage = new Intent(MainActivity.this, SecondActivity.class);
-            nextPage.putExtra( "EmailAddress", emailEditText.getText().toString() );
+            nextPage.putExtra("some Info", et.getText().toString());
+            nextPage.putExtra("MyFloat", 3.14f);
+            nextPage.putExtra("IsTrue", false);
+            Intent call =new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-            startActivity( nextPage );
+            startActivity( nextPage   );
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==123){
+            Log.w(TAG, "coming back from next page");
+
+        }
+    }
+
+
 
     @Override  //screen is now visible
     protected void onStart() {
