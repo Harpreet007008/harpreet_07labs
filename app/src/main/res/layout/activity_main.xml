@@ -19,12 +19,11 @@
 
         android:id="@+id/inputEditText"
         android:hint="Type something here:"
-        android:inputType="textPassword"/>
+        android:inputType="textEmailAddress"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Go to next page"
         android:id="@+id/nextPageButton"/>
-
 </LinearLayout>
