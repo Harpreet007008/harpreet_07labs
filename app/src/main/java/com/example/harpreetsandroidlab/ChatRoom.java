@@ -71,7 +71,7 @@ public class ChatRoom extends AppCompatActivity {
         TextView messageText;
         TextView timeText;
         int position = -1;
-        int row = getAdapterPosition();
+        int row = getAbsoluteAdapterPosition();
 
         public MyRowViews(View itemView) {
             super(itemView);
@@ -83,7 +83,7 @@ public class ChatRoom extends AppCompatActivity {
                         .setNegativeButton("No ", (dialog, cl) -> {
                         })
                         .setPositiveButton("Yes", (dialog, cl) -> {
-                            position = getAdapterPosition();
+                            position = getAbsoluteAdapterPosition();
                             ChatMessage removedMessage = messages.get(position);
 
                             messages.remove(position);
