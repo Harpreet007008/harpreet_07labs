@@ -1,6 +1,7 @@
 package com.example.harpreetsandroidlab;
 
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -31,20 +33,25 @@ public class ChatRoom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.newlayout);
-        chatList = findViewById(R.id.myrecycler);
-        chatList.setAdapter(new MyChatAdapter());
+      // chatList = findViewById(R.id.myrecycler);
+       //chatList.setAdapter(new MyChatAdapter());
 
         EditText messageTyped = findViewById(R.id.messageEdit);
         Button send = findViewById(R.id.sendbutton);
-        RecyclerView chatList = findViewById(R.id.myrecycler);
+
 
         Button receive = findViewById(R.id.receive);
+        EditText m = findViewById(R.id.editTextTextPersonalName);
+
+        MyOpenHelper opener = new MyOpenHelper( this);
+        SQLiteDatabase db = opener.getWritableDatabase();
+
 
         adt = new MyChatAdapter();
         chatList.setAdapter(adt);
-        //chatList.setLayoutManager(new LinearLayoutManager(this));
-        //StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        chatList.setLayoutManager(new LinearLayoutManager(this));
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        //LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         chatList.setLayoutManager(layoutManager);
 
         send.setOnClickListener( click -> {
