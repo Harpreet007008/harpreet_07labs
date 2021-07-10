@@ -164,7 +164,7 @@ public class ChatRoom extends AppCompatActivity {
     }
 
 
-    private class ChatMessage{
+    private static class ChatMessage{
         String message;
         int sendOrReceive;
         Date timeSent;
