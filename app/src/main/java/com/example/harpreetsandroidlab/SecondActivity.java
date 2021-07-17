@@ -1,7 +1,5 @@
 package com.example.harpreetsandroidlab;
 
-
-
 import android.content.Intent;
 import android.os.Bundle;
 
