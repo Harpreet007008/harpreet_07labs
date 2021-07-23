@@ -2,4 +2,12 @@
     <string name="app_name">Harpreet\'s android lab</string>
     <string name="hello_message">Hello world!</string>
     <string name="button_message">I\'m button</string>
+    <string name="type_in_the_name_of_a_city">type in the name of a city:</string>
+    <string name="type_city_name_here">Type city name here</string>
+    <string name="get_forecast">get forecast</string>
+    <string name="temp_goes_here">Temp goes here</string>
+    <string name="max_goes_here">max goes here</string>
+    <string name="description_goes_here">description goes here</string>
+    <string name="humidity_goes_here">humidity goes here</string>
+    <string name="min_goes_here">min goes here</string>
 </resources>
