@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     double max = mainObject.getDouble("temp_max");
                     int humitidy = mainObject.getInt("humidity");
 
+
                     URL imgUrl = new URL( "https://openweathermap.org/img/w/" + iconName + ".png" );
                     HttpURLConnection connection = (HttpURLConnection) imgUrl.openConnection();
                     connection.connect();
@@ -127,16 +128,20 @@ public class MainActivity extends AppCompatActivity {
                         tv.setText("The current temperature is " + current);
                         tv.setVisibility(View.VISIBLE);
 
-                        tv = findViewById(R.id.minTemp);
+                        tv = findViewById(R.id.maxTemp);
                         tv.setText("The min temperature is " + current);
                         tv.setVisibility(View.VISIBLE);
 
+                        tv = findViewById(R.id.minTemp);
+                        tv.setText("The max temperature is " + current);
+                        tv.setVisibility(View.VISIBLE);
+
                         tv = findViewById(R.id.humitidy);
-                        tv.setText("The humitidy is " + current);
+                        tv.setText("The humitidy is " + humitidy +"%");
                         tv.setVisibility(View.VISIBLE);
 
                         tv = findViewById(R.id.description);
-                        tv.setText("The description is " + current);
+                        tv.setText("The description is " + description);
                         tv.setVisibility(View.VISIBLE);
 
                         ImageView iv = findViewById(R.id.icon);
